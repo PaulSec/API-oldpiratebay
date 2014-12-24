@@ -64,7 +64,7 @@ class OldPirateBayAPI(object):
                 magnet_link = torrent.find('a', attrs={'title': 'MAGNET LINK'})['href']
                 link = "%s%s" % (url, torrent.findAll('a')[1]['href'])
                 name = date = torrent.find('span').text
-                t = {'date': date, 'size': size, 'seeders': seeders, 'leechers': leechers, 'magnet_link': magnet_link, 'name': name, 'link': link}
+                t = {'date': date, 'size': size, 'seeders': int(seeders), 'leechers': int(leechers), 'magnet_link': magnet_link, 'name': name, 'link': link}
                 res.append(t)
             except:
                 pass
